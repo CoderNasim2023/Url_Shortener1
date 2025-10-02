@@ -3,7 +3,7 @@ import HomePage from './pages/HomePage'
 import LoginForm from './components/LoginForm'
 import AuthPage from './pages/AuthPage'
 import { Outlet } from '@tanstack/react-router'
-import Navbar from './components/NavBar'
+import Navbar from './components/NavBar.jsx'
 
 const RootLayout = () => {
   return (

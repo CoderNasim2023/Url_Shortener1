@@ -1,3 +1,5 @@
+import 'dotenv/config';
+
 import express from "express";
 import {nanoid} from "nanoid"
 import dotenv from "dotenv"
@@ -11,7 +13,7 @@ import cors from "cors"
 import { attachUser } from "./src/utils/attachUser.js";
 import cookieParser from "cookie-parser"
 
-dotenv.config("./.env")
+
 
 const app = express();
 
@@ -33,7 +35,7 @@ app.get("/:id",redirectFromShortUrl)
 
 app.use(errorHandler)
 
-app.listen(3000,()=>{
+app.listen(process.removeListener.port || 3000,()=>{
     connectDB()
     console.log("Server is running on http://localhost:3000");
 })

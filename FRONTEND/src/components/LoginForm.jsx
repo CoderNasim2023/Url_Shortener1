@@ -12,18 +12,19 @@ const LoginForm = ({ state }) => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const auth = useSelector((state) => state.auth)
-    console.log(auth)
 
     const handleSubmit = async () => {
         setLoading(true);
         setError('');
 
         try {
-            const data = await loginUser(password, email);
+            const data = await loginUser(email , password);
             dispatch(login(data.user))
             navigate({to:"/dashboard"})
             setLoading(false);
-            console.log("signin success")
+            console.log("signin(Login) successful")
+            console.log("login input:", email, password)
+
         } catch (err) {
             setLoading(false);
             setError(err.message || 'Login failed. Please check your credentials.');

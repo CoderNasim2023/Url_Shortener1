@@ -45,7 +45,7 @@ const UrlForm = () => {
             id="url"
             value={url}
             onInput={(event)=>setUrl(event.target.value)}
-            placeholder="https://example.com"
+            placeholder="Enter Your long URL"
             required
             className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
@@ -78,7 +78,7 @@ const UrlForm = () => {
         )}
         {shortUrl && (
           <div className="mt-6">
-            <h2 className="text-lg font-semibold mb-2">Your shortened URL:</h2>
+            <h2 className="text-lg font-semibold mb-2">Your shortend URL:</h2>
             <div className="flex items-center">
               <input
                 type="text"

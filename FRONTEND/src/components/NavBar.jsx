@@ -1,25 +1,40 @@
 import React from 'react';
 import { Link } from '@tanstack/react-router';
+import { useSelector, useDispatch } from 'react-redux';
+import { logout } from '../store/slice/authSlice';
+import { useNavigate } from '@tanstack/react-router';
 
 const Navbar = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const auth = useSelector((state) => state.auth);
+  const isAuthenticated = auth?.isAuthenticated;
+  const userName = auth?.user?.name;
+
+  const handleLogout = () => {
+    dispatch(logout());  // redux state clear
+    navigate({ to: '/auth' }); // redirected to login page
+  };
+
   return (
-    <nav className="bg-white border border-b-black">
-      <div className=" mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className="border border-b-black">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
-          {/* Left side - App Name */}
+
+          {/* Left side - Project Title Name */}
           <div className="flex items-center">
             <Link to="/" className="text-xl font-bold text-gray-800">
-              URL Shortener
+              MERN URL Shortener
             </Link>
           </div>
-          
+
           {/* Right side - Auth buttons */}
           <div className="flex items-center">
-            {/* {(true) ? (
+            {isAuthenticated ? (
               <div className="flex items-center space-x-4">
                 <span className="text-gray-700">Welcome, {userName || 'User'}</span>
                 <button
-                  onClick={onLogout}
+                  onClick={handleLogout}
                   className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md text-sm font-medium"
                 >
                   Logout
@@ -32,7 +47,7 @@ const Navbar = () => {
               >
                 Login
               </Link>
-            )} */}
+            )}
           </div>
         </div>
       </div>

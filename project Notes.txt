@@ -1,0 +1,6 @@
+Localhost cookies 
+
+Backend calls setcookies request 
+
+Refresh token,access toke.
+stateless, stateful architecture 

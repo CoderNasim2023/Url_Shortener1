@@ -6,7 +6,7 @@ export const findUserByEmail = async (email) => {
 }
 
 export const findUserByEmailByPassword = async (email) => {
-    return await User.findOne({email}).select('+password')
+    return await User.findOne({email}).select('+password') //importent Line
 }
 
 export const findUserById = async (id) => {

@@ -8,7 +8,7 @@ export const authMiddleware = async (req, res, next) => {
         const decoded = verifyToken(token)
         const user = await findUserById(decoded)
         if(!user) return res.status(401).json({message:"Unauthorized"})
-        req.user = user
+        req.user = user 
         next()
     } catch (error) {
         return res.status(401).json({message:"Unauthorized",error})

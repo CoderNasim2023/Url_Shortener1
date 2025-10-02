@@ -2,7 +2,7 @@ import { createRootRoute } from "@tanstack/react-router"
 import { homePageRoute } from "./homepage"
 import { authRoute } from "./auth.route"
 import { dasboardRoute } from "./dashboard"
-import RootLayout from "../RootLayout"
+import RootLayout from "../RootLayout.jsx"
 
 export const rootRoute = createRootRoute({
     component: RootLayout

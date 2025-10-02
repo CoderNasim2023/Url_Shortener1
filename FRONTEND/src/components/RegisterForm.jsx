@@ -25,7 +25,7 @@ const RegisterForm = ({state}) => {
     setError('');
     
     try {
-      const data = await registerUser(name, password, email);
+      const data = await registerUser(name, email, password,);
       setLoading(false);
       dispatch(login(data.user))
       navigate({to:"/dashboard"})
@@ -70,7 +70,7 @@ const RegisterForm = ({state}) => {
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="email"
             type="email"
-            placeholder="Email"
+            placeholder="Enter Email ID"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
